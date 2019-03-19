@@ -15,7 +15,7 @@ public interface IInventoryItem
     // Qui andranno aggiunte eventualmente le funzioni di drop/use
 }
 
-public class InventoryEventArg : EventArgs
+public class InventoryEventArg : EventArgs // EventArgs = una classe base molto figa
 {
     public InventoryEventArg(IInventoryItem item)
     {
