@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Sticks : MonoBehaviour, IInventoryItem 
 {
+    public GameObject GameObject
+    {
+        get
+        {
+            return gameObject;
+        }
+    }
     public string Name
     {
         get

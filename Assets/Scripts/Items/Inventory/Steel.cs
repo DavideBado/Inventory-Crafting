@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Steel : MonoBehaviour, IInventoryItem 
 {
+    public GameObject GameObject
+    {
+        get
+        {
+            return gameObject;
+        }
+    }
+
     public string Name
     {
         get

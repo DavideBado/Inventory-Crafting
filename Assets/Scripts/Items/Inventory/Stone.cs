@@ -22,7 +22,13 @@ public class Stone : MonoBehaviour, IInventoryItem
         }
     }
 
-
+    public GameObject GameObject
+    {
+        get
+        {
+            return gameObject;
+        }
+    }
 
     public void OnPickup()
     {

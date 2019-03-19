@@ -5,7 +5,7 @@ using UnityEngine;
 
 public interface IInventoryItem
 {
-    GameObject gameObject { get; }
+    GameObject GameObject { get; }
 
     string Name { get; }
 

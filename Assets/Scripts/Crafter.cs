@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Crafter : MonoBehaviour
 {
-
+    public Canvas CraftingCanvas;
     public GameObject object1;
     public GameObject object2;
 
@@ -16,14 +16,14 @@ public class Crafter : MonoBehaviour
 
     internal void SelectItem(IInventoryItem item)
     {
-        if (object1 = null)
+        if (object1 == null)
         {
-            object1 = item.gameObject;
+            object1 = item.GameObject;
         }
         else
-            if(object2 = null)
+            if(object2 == null)
         {
-            object2 = item.gameObject;
+            object2 = item.GameObject;
         }
     }
 
@@ -95,6 +95,8 @@ public class Crafter : MonoBehaviour
                 break;
         }
         return string.Format("Effetto craft: {0} + {1} = ", obj1.GetCraftEffect(), obj2.GetCraftEffect());
+        object1 = null;
+        object2 = null;
     }
 }
 

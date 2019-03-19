@@ -29,8 +29,8 @@ public class HUD : MonoBehaviour
                 image.sprite = e.Item.Image;
 
                 itemDragHandler.Item = e.Item;
-
-                break;
+                if (itemDragHandler.Item != null)
+                { break; }
             }
             
         }
@@ -57,9 +57,4 @@ public class HUD : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
