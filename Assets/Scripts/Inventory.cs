@@ -12,16 +12,16 @@ public class Inventory : MonoBehaviour
     public event EventHandler<InventoryEventArg> ItemAdded;
     public event EventHandler<InventoryEventArg> ItemRemoved;
 
-    public void AddItem(IInventoryItem item)
+    public void AddItem(IInventoryItem item) // Quando si aggiunge un elemento
     {
-        if(mItems.Count < Slots)
+        if(mItems.Count < Slots) // Se hai ancora spazio
         {
-            Collider collider = (item as MonoBehaviour).GetComponent<Collider>();
+            Collider collider = (item as MonoBehaviour).GetComponent<Collider>(); // Prendi il collider
             if (collider.enabled)
             {
-                collider.enabled = false;
+                collider.enabled = false; // Spegnilo
 
-                mItems.Add(item);
+                mItems.Add(item); // Aggiungi l'oggetto alla lista
 
                 item.OnPickup();
 

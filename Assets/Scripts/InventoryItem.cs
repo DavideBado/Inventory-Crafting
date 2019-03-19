@@ -5,13 +5,14 @@ using UnityEngine;
 
 public interface IInventoryItem
 {
-    GameObject GameObject { get; }
+    GameObject GameObject { get; } // Questo serve al crafter per come lo avevamo fatto in classe
 
     string Name { get; }
 
     Sprite Image { get; }
 
     void OnPickup();
+    // Qui andranno aggiunte eventualmente le funzioni di drop/use
 }
 
 public class InventoryEventArg : EventArgs

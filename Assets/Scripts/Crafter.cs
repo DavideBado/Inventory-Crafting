@@ -6,40 +6,37 @@ using UnityEngine;
 public class Crafter : MonoBehaviour
 {
     public Canvas CraftingCanvas;
+
     public GameObject object1;
     public GameObject object2;
-
-    internal void SelectItem()
+    
+    internal void SelectItem(IInventoryItem item) // Hai due slot per il crafting, è ora di riempirli
     {
-        throw new NotImplementedException();
-    }
-
-    internal void SelectItem(IInventoryItem item)
-    {
-        if (object1 == null)
+        if (object1 == null) // Il primo è vuoto?
         {
-            object1 = item.GameObject;
+            object1 = item.GameObject; // Mettici l'oggetto che ti sta passando l'inventario
         }
         else
-            if(object2 == null)
+        if (object2 == null) // Il primo era già pieno e il secondo è vuoto?
         {
             object2 = item.GameObject;
-        }
+            CraftNow(); // Ora che anche il secondo slot è pieno crea qualcosa di nuovo
+        } 
     }
 
-    private void Update()
-    {if (object1 != null && object2 != null)
+    private void CraftNow()
+    {if (object1 != null && object2 != null) // Assicurati che non ci siano errori
         {
-            ICraftable Obj1 = object1.GetComponent<ICraftable>();
+            ICraftable Obj1 = object1.GetComponent<ICraftable>(); // Prendi solo quello che ti serve
             ICraftable Obj2 = object2.GetComponent<ICraftable>();
 
-            if (Obj1 != null && Obj2 != null)
+            if (Obj1 != null && Obj2 != null) // Un controllo in più non fa male
             {
-                Debug.Log(Crafting(Obj1, Obj2));
+                Debug.Log(Crafting(Obj1, Obj2)); // Stampa il risultato
             }
             else
             {
-                Debug.Log("Not craftable");
+                Debug.Log("Not craftable"); // Cazzo hai messo dentro la forgia?
             }
         }
     }
@@ -47,7 +44,7 @@ public class Crafter : MonoBehaviour
     public string Crafting(ICraftable obj1, ICraftable obj2)
     {
 
-        switch (obj1.GetEffects)
+        switch (obj1.GetEffects) // Prendi il libro delle ricette e divertiti
         {
             case IEndDragHandler.effect1:
                 switch (obj2.GetEffects)
@@ -95,7 +92,7 @@ public class Crafter : MonoBehaviour
                 break;
         }
         return string.Format("Effetto craft: {0} + {1} = ", obj1.GetCraftEffect(), obj2.GetCraftEffect());
-        object1 = null;
+        object1 = null; // Butta via gli ingredienti rimasti, l'utente sarà felice
         object2 = null;
     }
 }

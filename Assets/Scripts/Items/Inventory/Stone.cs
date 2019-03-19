@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stone : MonoBehaviour, IInventoryItem 
+public class Stone : MonoBehaviour, IInventoryItem // Questo oggetto deve avere:
 {
-    public string Name
+    public string Name // Un nome
     {
         get
         {
@@ -14,7 +14,7 @@ public class Stone : MonoBehaviour, IInventoryItem
 
     public Sprite _Image = null;
 
-    public Sprite Image
+    public Sprite Image // Una sua rappresentazione 2D
     {
         get
         {
@@ -22,7 +22,7 @@ public class Stone : MonoBehaviour, IInventoryItem
         }
     }
 
-    public GameObject GameObject
+    public GameObject GameObject // Il suo gameObject
     {
         get
         {
@@ -30,9 +30,9 @@ public class Stone : MonoBehaviour, IInventoryItem
         }
     }
 
-    public void OnPickup()
+    public void OnPickup() // Quando viene raccolto
     {
-        gameObject.SetActive(false);
+        gameObject.SetActive(false); // Si spegne
     }
 
    

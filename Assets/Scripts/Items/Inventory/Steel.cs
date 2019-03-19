@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// ******** VEDI STONE.CS ************
 public class Steel : MonoBehaviour, IInventoryItem 
 {
     public GameObject GameObject
